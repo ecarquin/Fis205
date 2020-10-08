@@ -21,7 +21,7 @@ class Derived(Base):
         print("Calling protected member of base class: ")
         print(self._a)
 
-    def getb(self):
+    def _getb(self):
         return self._b
 
 obj1 = Derived()
@@ -33,6 +33,6 @@ obj2 = Base()
 # AttributeError
 print(obj1.getb())
 
-print(obj2.a)
+print(obj2._a)
 
 #print(obj2.a)
