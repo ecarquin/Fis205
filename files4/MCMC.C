@@ -32,13 +32,13 @@ void MCMC()
   TF1 *pro = new TF1("p","gaus(0)",-5,5);
   pro->SetParameter(0,1/sqrt(2*TMath::Pi()));
   pro->SetParameter(1,1.0);
-  pro->SetParameter(2,3.0);
+  pro->SetParameter(2,2.0);
   pro->SetLineColor(kBlue);
   
   pro->Draw("same");
   TRandom3 *r1 = new TRandom3(0);
   TRandom3 *r2 = new TRandom3(10);
-  TRandom3 *r3 = new TRandom3(20);
+  //TRandom3 *r3 = new TRandom3(20);
   
   //We start from a random number in this case
   double x00; for(UInt_t j=0;j<10;j++) x00=r1->Rndm();
@@ -98,8 +98,19 @@ void MCMC()
 
   cout << std::setprecision(3) << "Acceptance rate is: " << acc/(float)N << endl;
 
+  rho->GetHistogram()->SetTitle("Metropolis-Hastings example");
+
+  rho->GetHistogram()->GetXaxis()->SetTitle("x");
+  rho->GetHistogram()->GetYaxis()->SetTitle("arb. units");
+
+  TLegend *leg=new TLegend(0.2,0.6,0.4,0.8);
   h->Scale(5*rho->Integral(-5,5)/h->Integral());
+  h->SetLineColor(kGreen+3);
   h->Draw("same");
+  leg->AddEntry(h,"Sampled distribution");
+  leg->AddEntry(p,"Proposal distribution");
+  leg->AddEntry(rho,"Target distribution");
+  leg->Draw();
   p->SetLineColor(kGreen);
   p->Scale(1/p->Integral());
   p->Draw("same");

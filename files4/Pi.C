@@ -50,7 +50,7 @@ void Pi(){
   c1->Update();
   c1->Clear();
 
-  TLine *l=new TLine(1.0,TMath::Pi(),100000,TMath::Pi());
+  TLine *l=new TLine(10.0,TMath::Pi(),100000,TMath::Pi());
 
   TLegend *leg=new TLegend(0.5,0.3,0.8,0.5);
   
