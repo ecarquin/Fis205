@@ -34,7 +34,7 @@ void negative_log_likelihood(Int_t &npar, Double_t *gin, Double_t &nll, Double_t
 
   nll = -sum;
 
-  cout << nll << endl;
+  //cout << nll << endl;
 }
 
 
@@ -51,7 +51,7 @@ void exampleEMLFit()
     data_vector[i]=rand;
   }
 
-  //Fill in the histogram                                                                                                                     
+  //Fill in the histogram
   for(int i=0;i<200000;++i){
     Double_t rand = gRandom->Exp(1);
     hist->Fill(rand);
@@ -72,7 +72,7 @@ void exampleEMLFit()
   //Good parameter set 1000
   m.DefineParameter(0,"a",1.,0.0,0.95,2.1);
   //m.DefineParameter(0,"a",1.1,0.01,0.95,2.1);
-  m.DefineParameter(1,"b",3.4,1e-2,2.7,3.5);
+  m.DefineParameter(1,"b",3.0,1e-2,2.7,3.5);
   m.DefineParameter(2,"c",1.24,1e-2,0.01,5.);
   m.DefineParameter(3,"d",0.001,1e-2,1.,1e+6);
   m.DefineParameter(4,"e",1e+3,1e-2,0.95e+3,1e+4);
