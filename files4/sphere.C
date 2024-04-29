@@ -11,7 +11,7 @@ void sphere()
 
   for(UInt_t i=0;i<=100000;i++){
     phi[i]=2*TMath::Pi()*rndm->Uniform();
-    theta[i]=TMath::ACos(1-2*rndm->Uniform());
+    theta[i]=TMath::ACos(1-2*rndm2->Uniform());
     //cout << phi[i] << " " << theta[i] << std::endl;
     x[i]=TMath::Sin(theta[i])*TMath::Cos(phi[i]);
     y[i]=TMath::Sin(theta[i])*TMath::Sin(phi[i]);
