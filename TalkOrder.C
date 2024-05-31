@@ -2,7 +2,7 @@ void TalkOrder()
 {
   TRandom *rand=new TRandom3();
 
-  rand->SetSeed(666);
+  rand->SetSeed(123);
 
   cout << rand->Uniform() << endl;
 
